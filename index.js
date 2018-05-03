@@ -11,6 +11,22 @@ const robots = [
   { name: 'Ratchet', alliance: null }
 ];
 
+var sortedRobots = robots.map(function (robot) {
+  function setAlliance(robot) {
+    knownDecepticons.forEach(function(decepticonName) {
+      if (robot.name === decepticonName) {
+        return 'decepticon'
+      }else {
+        return 'autobot'
+      }
+    })
+  }
+  return Object.assign({}, robot, {
+    name: robot.name
+    alliance: 'deception'//setAlliance(robot)
+  });
+})
+
 const zebraStripes = [
   { width: 9.12, color: null },
   { width: 5.71, color: null },
